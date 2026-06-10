@@ -850,6 +850,34 @@ footer {
   to   { opacity:1; transform: translateY(0); }
 }
 
+/* ---- TRUCK SPECS CALLOUT (homepage) ---- */
+.specs-callout {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--blue-mid) 100%);
+  padding: 60px 0;
+  border-bottom: 3px solid var(--accent);
+}
+.specs-callout-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+.specs-callout-text .section-label { color: var(--accent); }
+.specs-callout-text h2 { color: var(--white); margin-bottom: 10px; }
+.specs-callout-text p  { color: rgba(255,255,255,0.75); max-width: 520px; margin: 0; }
+.specs-callout-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  flex-shrink: 0;
+}
+@media (max-width: 720px) {
+  .specs-callout-inner { flex-direction: column; }
+  .specs-callout-actions { width: 100%; }
+  .specs-callout-actions .btn { flex: 1; justify-content: center; }
+}
+
 /* ============================================
    RESPONSIVE
    ============================================ */
