@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ---- Form Submission (Formspree + spam protection) ---- */
+  /* ---- Form Submission (Formspree AJAX + spam protection) ---- */
   function showNotify(message, isError) {
     const notify = document.getElementById('notification');
     if (!notify) return;
@@ -52,15 +52,13 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => notify.classList.remove('show'), 5000);
   }
 
-  document.querySelectorAll('form[data-netlify]').forEach(form => {
+  document.querySelectorAll('form[action*="formspree.io"]').forEach(form => {
     form.addEventListener('submit', async e => {
       e.preventDefault();
 
-      // 1. Honeypot check — if the hidden field is filled, it's a bot. Silently stop.
-      const honeypot = form.querySelector('input[name="bot-field"]');
-      if (honeypot && honeypot.value.trim() !== '') {
-        return; // pretend nothing happened
-      }
+      // 1. Honeypot — if filled, it's a bot. Silently stop.
+      const honeypot = form.querySelector('input[name="_gotcha"]');
+      if (honeypot && honeypot.value.trim() !== '') return;
 
       // 2. Client-side rate limit — block repeat submits within 30 seconds.
       const lastSubmit = Number(sessionStorage.getItem('jl_last_submit') || 0);
@@ -70,9 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // 3. Basic required-field validation (Netlify re-checks server-side too).
-      const required = form.querySelectorAll('[required]');
-      for (const field of required) {
+      // 3. Required-field validation.
+      for (const field of form.querySelectorAll('[required]')) {
         if (!field.value.trim()) {
           showNotify('Please fill in all required fields.', true);
           field.focus();
@@ -81,40 +78,32 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const submitBtn = form.querySelector('button[type="submit"]');
-      const originalText = submitBtn ? submitBtn.innerHTML : '';
+      const originalHTML = submitBtn ? submitBtn.innerHTML : '';
       if (submitBtn) { submitBtn.disabled = true; submitBtn.innerHTML = 'Sending...'; }
 
-      // 4. Submit to Netlify Forms.
-      //    Locally (Live Server / opened as a file) there is no Netlify backend,
-      //    so we run a harmless demo. Once deployed to Netlify, real submissions
-      //    appear in your Netlify dashboard under Forms.
-      const isLocal = location.protocol === 'file:' ||
-                      location.hostname === 'localhost' ||
-                      location.hostname === '127.0.0.1';
+      // 4. Submit to Formspree. Works from localhost and production alike.
       try {
-        if (isLocal) {
-          await new Promise(r => setTimeout(r, 600));
-          showNotify('✓ Demo mode: deploy to Netlify to receive real submissions.', false);
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: new URLSearchParams(new FormData(form)).toString()
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok) {
+          sessionStorage.setItem('jl_last_submit', String(now));
+          showNotify("✓ Sent! We'll be in touch shortly.", false);
           form.reset();
         } else {
-          const body = new URLSearchParams(new FormData(form)).toString();
-          const res = await fetch('/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body
-          });
-          if (res.ok) {
-            sessionStorage.setItem('jl_last_submit', String(now));
-            showNotify('✓ Your message was sent! We\'ll contact you shortly.', false);
-            form.reset();
-          } else {
-            showNotify('Something went wrong. Please call us at 951-833-8122.', true);
-          }
+          const msg = data.errors ? data.errors.map(err => err.message).join(' ') : 'Something went wrong.';
+          showNotify(msg + ' Or call 951-833-8122.', true);
         }
       } catch (err) {
-        showNotify('Network error. Please call us at 951-833-8122.', true);
+        showNotify('Network error. Please call 951-833-8122.', true);
       } finally {
-        if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = originalText; }
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = originalHTML; }
       }
     });
   });

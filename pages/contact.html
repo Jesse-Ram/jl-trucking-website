@@ -127,11 +127,10 @@
         <div class="form-card" style="box-shadow:var(--shadow); padding:36px 32px;">
           <h3 style="color:var(--navy); margin-bottom:8px;">Send Us a Message</h3>
           <p style="margin-bottom:28px; font-size:0.95rem;">Fill out the form below and we'll get back to you as soon as possible.</p>
-          <!-- Replace YOUR_FORM_ID with your real Formspree form ID -->
-          <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
-            <input type="hidden" name="form-name" value="contact" />
-            <!-- Honeypot: hidden from humans, bots fill it and get rejected. Do not remove. -->
-            <input type="text" name="bot-field" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" aria-hidden="true" />
+          <form id="contactForm" action="https://formspree.io/f/mpqejzbp" method="POST" novalidate>
+            <input type="hidden" name="_subject" value="Contact Form — JL Trucking Website" />
+            <!-- Honeypot: hidden from humans, bots fill it and Formspree rejects it. Do not remove. -->
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" aria-hidden="true" />
             <div class="form-grid">
               <div class="form-group">
                 <label for="cname">Full Name *</label>
@@ -174,7 +173,7 @@
 </section>
 
 <footer>
-  <div class="container">S
+  <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="nav-logo">

@@ -122,10 +122,10 @@
     </div>
     <div class="form-card">
       <!-- Replace YOUR_FORM_ID with your real Formspree form ID. The data-protected attribute turns on honeypot + rate-limit checks in main.js -->
-      <form id="quoteForm" name="quote-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
-        <input type="hidden" name="form-name" value="quote-request" />
-        <!-- Honeypot: hidden from humans, bots fill it and get rejected. Do not remove. -->
-        <input type="text" name="bot-field" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" aria-hidden="true" />
+      <form id="quoteForm" action="https://formspree.io/f/mpqejzbp" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="Quote Request — JL Trucking Rates Page" />
+        <!-- Honeypot: hidden from humans, bots fill it and Formspree rejects it. Do not remove. -->
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" aria-hidden="true" />
         <div class="form-grid">
           <div class="form-group">
             <label for="fullname">Full Name *</label>

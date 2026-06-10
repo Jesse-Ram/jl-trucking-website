@@ -395,11 +395,10 @@
     </div>
     <div class="form-card">
       <!-- Replace YOUR_FORM_ID with your real Formspree form ID -->
-      <form id="quoteForm" name="quote-home" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
-        <!-- Netlify needs this hidden field to match the form name. Do not remove. -->
-        <input type="hidden" name="form-name" value="quote-home" />
-        <!-- Honeypot: hidden from humans, bots fill it and get rejected. Do not remove. -->
-        <input type="text" name="bot-field" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" aria-hidden="true" />
+      <form id="quoteForm" action="https://formspree.io/f/mpqejzbp" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="Quote Request — JL Trucking Homepage" />
+        <!-- Honeypot: hidden from humans, bots fill it and Formspree rejects it. Do not remove. -->
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" aria-hidden="true" />
         <div class="form-grid">
           <div class="form-group">
             <label for="name">Full Name *</label>
