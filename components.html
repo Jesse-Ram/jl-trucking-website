@@ -8,7 +8,7 @@
 <!-- ===== NAVBAR (shared across all pages) ===== -->
 <nav id="navbar">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
+    <a href="/" class="nav-logo">
       <div class="logo-mark"><span>JL</span></div>
       <div class="logo-text">
         <strong>JL Trucking</strong>
@@ -17,17 +17,19 @@
     </a>
 
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="pages/about.html">About</a></li>
-      <li><a href="pages/services.html">Services</a></li>
-      <li><a href="pages/rates.html">Get a Quote</a></li>
-      <li><a href="pages/contact.html">Contact</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/pages/about.html">About</a></li>
+      <li><a href="/pages/services.html">Services</a></li>
+      <li><a href="/pages/rates.html">Get a Quote</a></li>
+      <li><a href="/pages/contact.html">Contact</a></li>
     </ul>
 
-    <a href="pages/rates.html" class="btn btn-primary nav-cta">Request a Quote</a>
+    <a href="/pages/rates.html" class="btn btn-primary nav-cta">Request a Quote</a>
 
     <button class="nav-toggle" aria-label="Menu">
-      <span></span><span></span><span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
   </div>
 </nav>
@@ -37,19 +39,27 @@
 <footer>
   <div class="container">
     <div class="footer-grid">
+
       <!-- Brand -->
       <div class="footer-brand">
-        <div class="nav-logo">
+        <a href="/" class="nav-logo">
           <div class="logo-mark"><span>JL</span></div>
           <div class="logo-text">
             <strong>JL Trucking</strong>
             <small>Licensed &amp; Insured</small>
           </div>
-        </div>
-        <p>Reliable carrier, logistics, moving, and freight services across Southern California. Licensed, insured, and committed to professional service.</p>
+        </a>
+
+        <p>
+          Reliable carrier, logistics, moving, and freight services across Southern California.
+          Licensed, insured, and committed to professional service.
+        </p>
+
         <div class="footer-social">
           <a href="#" class="social-btn" aria-label="Facebook">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
           </a>
         </div>
       </div>
@@ -58,11 +68,11 @@
       <div class="footer-col">
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="rates.html">Rates &amp; Quotes</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/pages/about.html">About Us</a></li>
+          <li><a href="/pages/services.html">Services</a></li>
+          <li><a href="/pages/rates.html">Rates &amp; Quotes</a></li>
+          <li><a href="/pages/contact.html">Contact</a></li>
         </ul>
       </div>
 
@@ -70,28 +80,39 @@
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="services.html">Carrier Services</a></li>
-          <li><a href="services.html">Logistics</a></li>
-          <li><a href="services.html">Moving Services</a></li>
-          <li><a href="services.html">Furniture Removal</a></li>
-          <li><a href="services.html">Local Trucking</a></li>
-          <li><a href="services.html">Freight Transport</a></li>
+          <li><a href="/pages/services.html">Carrier Services</a></li>
+          <li><a href="/pages/services.html">Logistics</a></li>
+          <li><a href="/pages/services.html">Moving Services</a></li>
+          <li><a href="/pages/services.html">Furniture Removal</a></li>
+          <li><a href="/pages/services.html">Local Trucking</a></li>
+          <li><a href="/pages/services.html">Freight Transport</a></li>
         </ul>
       </div>
 
       <!-- Contact -->
       <div class="footer-col">
         <h4>Contact Us</h4>
+
         <div class="footer-contact-item">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.79a16 16 0 0 0 6.06 6.06l.98-.98a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.18z"/></svg>
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.79a16 16 0 0 0 6.06 6.06l.98-.98a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.18z"/>
+          </svg>
           <a href="tel:9518338122">951-833-8122</a>
         </div>
+
         <div class="footer-contact-item">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
           <a href="mailto:Lopezjp_123@yahoo.com">Lopezjp_123@yahoo.com</a>
         </div>
+
         <div class="footer-contact-item">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
           <span>26777 6th Street, Highland, CA</span>
         </div>
       </div>
@@ -100,7 +121,10 @@
 
   <div class="container">
     <div class="footer-bottom">
-      <span>&copy; 2024 JL Trucking &mdash; Jorge A. Lopez Perez, DBA Jorge Lopez Trucking. All rights reserved.</span>
+      <span>
+        &copy; 2026 JL Trucking &mdash; Jorge A. Lopez Perez, DBA Jorge Lopez Trucking. All rights reserved.
+      </span>
+
       <div class="compliance-badges">
         <span class="comp-badge">MC# 980145</span>
         <span class="comp-badge">DOT# 2807485</span>
@@ -109,10 +133,14 @@
   </div>
 </footer>
 
+
 <!-- Floating Call Button -->
 <a href="tel:9518338122" class="float-call" aria-label="Call Now">
-  <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.79a16 16 0 0 0 6.06 6.06l.98-.98a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.18z"/></svg>
+  <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.79a16 16 0 0 0 6.06 6.06l.98-.98a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.18z"/>
+  </svg>
 </a>
+
 
 <!-- Notification Toast -->
 <div class="notify" id="notification"></div>
